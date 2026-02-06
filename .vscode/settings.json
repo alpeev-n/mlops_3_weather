@@ -1,0 +1,10 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "pip": true,
+        "airflow": true,
+        "/^\\$env:AIRFLOW_HOME = \\(Get-Location\\)\\.Path ; \\.\\\\\\.venv\\\\Scripts\\\\python\\.exe -m airflow db migrate$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
