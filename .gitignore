@@ -1,0 +1,13 @@
+.env
+*.csv
+data/
+__pycache__/
+*.pyc
+*.pyo
+.python-version
+venv/
+env/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
