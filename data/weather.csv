@@ -1,0 +1,4 @@
+datetime,city,weather_main,weather_description,temp,feels_like,pressure,wind_speed
+1770761009,Moscow,Clouds,overcast clouds,-11.76,-16.54,1011,2.23
+1770760819,Moscow,Clouds,overcast clouds,-11.76,-16.54,1011,2.23
+1770761333,Moscow,Clouds,overcast clouds,-11.76,-16.54,1011,2.23
