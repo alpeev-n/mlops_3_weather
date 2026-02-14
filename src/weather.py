@@ -1,7 +1,10 @@
 import csv
 import os
+from typing import Optional
+
 import requests
 from dotenv import load_dotenv
+from datetime import datetime, timezone
 
 
 def fetch_weather(api_key: str, city="Moscow") -> dict:
@@ -24,8 +27,10 @@ def fetch_weather(api_key: str, city="Moscow") -> dict:
         raise RuntimeError(f"Ошибка получения погоды: {str(e)}")
 
 
-def save_weather_to_csv(api_key: str="a4e46e946cbaa29f04bc37550825b874", city="Moscow", filename="/opt/airflow/src/weather.csv") -> None:
-    # api_key = os.getenv("API_KEY")
+def save_weather_to_csv(city="Moscow", filename="/opt/airflow/src/weather.csv", api_key: Optional[str] = None) -> None:
+    if api_key is None:
+        api_key = os.getenv("API_KEY")
+
     # Получаем данные о погоде
     weather_data = fetch_weather(api_key, city)
 
@@ -35,7 +40,7 @@ def save_weather_to_csv(api_key: str="a4e46e946cbaa29f04bc37550825b874", city="M
         return
 
     # Извлекаем необходимые данные
-    dt = weather_data.get("dt")
+    dt = datetime.fromtimestamp(weather_data.get("dt"), tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S %Z')
     city_name = weather_data.get("name")
 
     # Извлекаем данные о погоде
@@ -87,7 +92,7 @@ def save_weather_to_csv(api_key: str="a4e46e946cbaa29f04bc37550825b874", city="M
 
 if __name__ == "__main__":
     # test weather API
-    load_dotenv("../.env")
+    load_dotenv("./.env")
     api_key = os.getenv("API_KEY")
 
     if not api_key:

@@ -1,14 +1,14 @@
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from weather import save_weather_to_csv
+from src.weather import save_weather_to_csv
 
 
 # Настройки DAG
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'start_date': datetime(2026, 2, 6),
+    'start_date': datetime(2026, 2, 14),
     'email_on_failure': False,
     'email_on_retry': False,
     'retries': 2,
