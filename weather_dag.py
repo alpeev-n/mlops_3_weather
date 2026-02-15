@@ -26,7 +26,7 @@ dag = DAG(
     description='Pipeline for fetching weather data every minute',
     schedule_interval=timedelta(minutes=1),
     catchup=False,
-}
+)
 
 
 def fetch_and_save_weather():
