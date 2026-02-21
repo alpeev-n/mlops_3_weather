@@ -14,5 +14,5 @@ services:
 
     environment:
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
-
+      - API_KEY=${API_KEY}
     restart: always

@@ -17,7 +17,7 @@ def fetch_weather(api_key: str, city="Moscow") -> dict:
 
 
 def save_weather_to_csv(city="Moscow", csv_path=DATASET_PATH):
-    load_dotenv("/opt/airflow/.env")
+    # load_dotenv("/opt/airflow/.env")
 
     api_key = os.getenv("API_KEY")
 
