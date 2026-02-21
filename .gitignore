@@ -127,8 +127,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-weather.csv
-dataset/weather.csv
 
 # Spyder project settings
 .spyderproject
