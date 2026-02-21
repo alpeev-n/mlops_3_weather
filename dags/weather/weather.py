@@ -6,7 +6,7 @@ import requests
 from dotenv import load_dotenv
 
 
-DATASET_PATH = "/opt/airflow/weather.csv"
+DATASET_PATH = "/opt/airflow/results/weather.csv"
 
 
 def fetch_weather(api_key: str, city="Moscow") -> dict:
